@@ -3,9 +3,12 @@ import Navbar from "./Navbar";
 
 function Layout({ children }) {
   return (
-    <div className="bg-slate-400 w-full h-screen">
-      <Navbar />
-      <div className="w-full h-full overflow-auto">{children}</div>
+    <div className=" bg-abuTua w-full h-screen">
+      <div>
+        <Navbar />
+      </div>
+
+      <div className="w-full h-full bg-abuTua p-1 ">{children}</div>
     </div>
   );
 }
