@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 
 function Layout({ children }) {
   return (
-    <div className=" bg-abuTua w-full h-screen">
+    <div className=" bg-abuTua w-full h-screen overflow-auto">
       <div>
         <Navbar />
       </div>

@@ -6,7 +6,9 @@ function Navbar() {
   return (
     <div className="navbar top-0 z-10 fixed  bg-blackOne text-white ">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case font-RobotoSlab text-xl">ACHSMOVIE</a>
+        <a className="btn btn-ghost normal-case font-RobotoSlab text-xl" href="/">
+          ACHSMOVIE
+        </a>
       </div>
       <div className="w-full flex justify-center">
         <div className="form-control w-1/3">

@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function Frame({ background, image, title, runtime, release, genre, language, overview }) {
+function Frame({ background, image, title, runtime, release, genre, language, overview, id, linkWatch }) {
   return (
-    <div className={` bg-no-repeat bg-cover  text-white text-3xl  w-full h-full  object-cover bg-[url(https://image.tmdb.org/t/p/w500${background})]`}>
+    <div className={` bg-no-repeat bg-cover  text-white text-3xl  w-full h-full  object-cover bg-[url(https://image.tmdb.org/t/p/w500${background})] `}>
       <div className="flex justify-center items-center bg-gradient-to-l from-white w-full h-full ">
-        <div className="bg-glass w-4/5 h-2/3 opacity-50 backdrop:blur-md shadow-black shadow-lg card flex flex-row">
+        <div className="bg-glass w-4/5 h-2/3 backdrop:blur-md shadow-black shadow-lg card flex flex-row">
           <img className="h-4/5 w-2/5 place-self-center object-contain" src={`https://image.tmdb.org/t/p/w500${image}`} alt="" />
           <div className="w-full p-5">
             <h1 className="font-bold w-full text-center text-blackOne">{title}</h1>
@@ -29,7 +30,9 @@ function Frame({ background, image, title, runtime, release, genre, language, ov
                 </p>
               </div>
               <div>
-                <button className="btn px-2 w-full">Watch Now</button>
+                <a href={`https://www.themoviedb.org/movie/${id}/watch?locale=US`}>
+                  <button className="btn px-2 w-full">Watch Now</button>
+                </a>
               </div>
             </div>
           </div>
