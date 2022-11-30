@@ -10,7 +10,7 @@ function Frame({ background, image, title, runtime, release, genre, language, ov
           <div className="w-full p-5">
             <h1 className="font-bold w-full text-center text-blackOne">{title}</h1>
             <div className="card-body justify-between h-full">
-              <div>
+              <div className="overflow-auto">
                 <p className="text-lg font-medium">
                   Runtime: <span className="font-normal"> {runtime}</span>{" "}
                 </p>
