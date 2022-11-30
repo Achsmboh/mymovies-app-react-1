@@ -2,7 +2,7 @@ import React from "react";
 import { CgProfile } from "react-icons/cg";
 import { FiSun } from "react-icons/fi";
 
-function Navbar() {
+function Navbar({ onChange, onSubmit }) {
   return (
     <div className="navbar top-0 z-10 fixed  bg-blackOne text-white ">
       <div className="flex-1">
@@ -11,9 +11,9 @@ function Navbar() {
         </a>
       </div>
       <div className="w-full flex justify-center">
-        <div className="form-control w-1/3">
-          <input type="text" placeholder="Search" className="input input-bordered" />
-        </div>
+        <form onSubmit={onSubmit} className="form-control w-1/3">
+          <input type="text" placeholder="Search" className="input input-bordered text-black" onChange={onChange} />
+        </form>
       </div>
       <div className="flex-none gap-2">
         <div className="dropdown dropdown-end flex justify-between items-center ">

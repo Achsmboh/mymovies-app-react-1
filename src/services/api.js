@@ -4,6 +4,10 @@ const instance = axios.create({
   baseURL: `https://api.themoviedb.org/3/movie/`,
 });
 
+const instanceTwo = axios.create({
+  baseURL: `https://api.themoviedb.org/3/`,
+});
+
 export default {
   now_playing: (page) =>
     instance({
@@ -19,5 +23,10 @@ export default {
     instance({
       method: `GET`,
       url: `${id}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}`,
+    }),
+  get_Search: (title) =>
+    instanceTwo({
+      method: `GET`,
+      url: `search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&query=${title}&page=1&include_adult=false`,
     }),
 };
