@@ -43,9 +43,9 @@ function Home() {
   }
   return (
     <Layout>
-      <div className="flex w-full flex-col bg-abuTua">
+      <div className="flex w-full flex-col bg-abuTua dark:bg-blackTwo">
         <div className="h-44 w-full flex justify-center items-end">
-          <h1 className="text-7xl font-rubikDistressed p-5 text-gray-600">NOW PLAYING</h1>
+          <h1 className="text-7xl font-rubikDistressed p-5 text-gray-600 dark:text-white">NOW PLAYING</h1>
         </div>
         <div className="grid grid-cols-5 ">{loading ? <Loading /> : datas.map((item) => <Card key={item.id} image={item.poster_path} tombol={"Add Favorite"} title={item.title} onNavigate={() => handleDetail(item.id)} />)}</div>
         <div className="p-1">
