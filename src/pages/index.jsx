@@ -5,12 +5,15 @@ import api from "../services/api";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
+import { useDispatch } from "react-redux";
+import { setFavorites } from "../utils/reducers/reducer";
 
 function Home() {
   const [datas, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   function getNowPlaying() {
     api
@@ -41,13 +44,35 @@ function Home() {
       },
     });
   }
+
+  function handleFav(movie) {
+    const getMovies = localStorage.getItem("favMovies");
+    if (getMovies) {
+      const parsedMovies = JSON.parse(getMovies);
+
+      const favMovies = parsedMovies.find((obj) => obj.title === movie.title);
+      if (favMovies) return alert("Film sudah ditambahkan");
+
+      parsedMovies.push(movie);
+      const temp = JSON.stringify(parsedMovies);
+      dispatch(setFavorites(parsedMovies));
+      localStorage.setItem("favMovies", temp);
+    } else {
+      const temp = JSON.stringify([movie]);
+      dispatch(setFavorites([movie]));
+      localStorage.setItem("favMovies", temp);
+    }
+  }
+
   return (
     <Layout>
       <div className="flex w-full flex-col bg-abuTua dark:bg-blackTwo">
         <div className="h-44 w-full flex justify-center items-end">
           <h1 className="text-7xl font-rubikDistressed p-5 text-gray-600 dark:text-white">NOW PLAYING</h1>
         </div>
-        <div className="grid grid-cols-5 ">{loading ? <Loading /> : datas.map((item) => <Card key={item.id} image={item.poster_path} tombol={"Add Favorite"} title={item.title} onNavigate={() => handleDetail(item.id)} />)}</div>
+        <div className="grid grid-cols-5 ">
+          {loading ? <Loading /> : datas.map((item) => <Card key={item.id} image={item.poster_path} tombol={"Add Favorite"} title={item.title} onNavigate={() => handleDetail(item.id)} onClick={() => handleFav(item)} />)}
+        </div>
         <div className="p-1">
           <button className="btn w-full" onClick={() => getNowPlaying()}>
             Load More
