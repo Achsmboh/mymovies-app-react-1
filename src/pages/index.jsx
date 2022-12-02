@@ -27,7 +27,7 @@ function Home() {
         setPage(newPage);
       })
       .catch((err) => {
-        console.log(err);
+        alert(err);
       })
       .finally(() => {
         setLoading(false);
@@ -67,10 +67,10 @@ function Home() {
   return (
     <Layout>
       <div className="flex w-full flex-col bg-abuTua dark:bg-blackTwo">
-        <div className="h-44 w-full flex justify-center items-end">
-          <h1 className="text-7xl font-rubikDistressed p-5 text-gray-600 dark:text-white">NOW PLAYING</h1>
+        <div className="lg:h-44 md:h-40 h-40 w-full flex justify-center items-end">
+          <h1 className="lg:text-7xl md:text-5xl text-3xl font-rubikDistressed p-5 text-gray-600 dark:text-white">NOW PLAYING</h1>
         </div>
-        <div className="grid grid-cols-5 ">
+        <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 ">
           {loading ? <Loading /> : datas.map((item) => <Card key={item.id} image={item.poster_path} tombol={"Add Favorite"} title={item.title} onNavigate={() => handleDetail(item.id)} onClick={() => handleFav(item)} />)}
         </div>
         <div className="p-1">

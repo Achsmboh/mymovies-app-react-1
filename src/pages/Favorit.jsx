@@ -28,10 +28,10 @@ function Favorit() {
   return (
     <Layout>
       <div>
-        <div className="h-44 w-full flex justify-center items-end">
-          <h1 className="text-7xl font-rubikDistressed p-5 text-gray-600 dark:text-white">Favorite</h1>
+        <div className="lg:h-44 md:h-40 h-40 w-full flex justify-center items-end">
+          <h1 className="lg:text-7xl md:text-5xl text-3xl font-rubikDistressed p-5 text-gray-600 dark:text-white">Favorite</h1>
         </div>
-        <div className="grid grid-cols-5">
+        <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2">
           {favorites ? favorites.map((item) => <Card key={item.id} image={item.poster_path} title={item.title} onNavigate={() => handleDetail(item.id)} tombol={"Remove"} onClick={() => handleRemove(item)} />) : <></>}
         </div>
       </div>
