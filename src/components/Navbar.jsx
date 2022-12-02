@@ -4,6 +4,7 @@ import { FiSun } from "react-icons/fi";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { useContext } from "react";
 import { ThemeContext } from "../utils/context";
+import { Link } from "react-router-dom";
 
 function Navbar({ onChange, onSubmit }) {
   const { isLight, setIsLight } = useContext(ThemeContext);
@@ -32,16 +33,11 @@ function Navbar({ onChange, onSubmit }) {
               </div>
             )}
           </div>
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="text-4xl rounded-full">
+          <Link to="/favorite">
+            <div className="text-4xl">
               <CgProfile />
             </div>
-          </label>
-          <ul tabIndex={0} className="mt-3 p-2 shadow bg-blackTwo text-white menu menu-compact dropdown-content rounded-box w-52">
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
+          </Link>
         </div>
       </div>
     </div>

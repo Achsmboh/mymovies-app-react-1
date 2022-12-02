@@ -22,7 +22,7 @@ function Layout({ children }) {
         <Navbar onChange={(e) => setTitle(e.target.value)} onSubmit={() => handleSubmit()} />
       </div>
 
-      <div className="w-full h-full bg-abuTua p-1 ">{children}</div>
+      <div className="w-full h-full dark:bg-blackTwo bg-abuTua p-1 ">{children}</div>
     </div>
   );
 }

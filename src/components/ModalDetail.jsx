@@ -35,7 +35,6 @@ const ModalDetail = ({ title, id, release, language, overview, image }) => {
                   </div>
                 </div>
                 <div className="p-2">
-                  5
                   <a href={`https://www.themoviedb.org/movie/${id}/watch?locale=US`}>
                     <button className="btn px-2 w-full">Watch Now</button>
                   </a>
