@@ -5,6 +5,7 @@ import Frame from "../components/Frame";
 import Card from "../components/Card";
 import { useLocation, useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
+import ModalDetail from "../components/ModalDetail";
 
 function Detail() {
   const [data, setData] = useState([]);
@@ -12,6 +13,8 @@ function Detail() {
   const location = useLocation();
   const [videos, setVideos] = useState([]);
   const [page, setPage] = useState(1);
+  const [videosTwo, setVideosTwo] = useState([]);
+  console.log("videos two", videosTwo);
 
   const id = location?.state?.id;
 
@@ -21,6 +24,7 @@ function Detail() {
       .then((ress) => {
         const result = ress.data;
         setVideos(result);
+        console.log("result", result);
       })
       .catch((err) => {
         alert(err);
@@ -70,11 +74,11 @@ function Detail() {
             />
           )}
         </div>
-        <div className="mt-5 w-full">
-          <h1 className="w-full text-center text-7xl font-rubikDistressed my-5">Similar movie</h1>
+        <div className="w-full ">
+          <h1 className="w-full text-center text-7xl font-rubikDistressed pt-5 dark:text-white ">Similar movie</h1>
           <div className="w-full grid grid-cols-5">
             {data ? (
-              data.map((item) => <Card key={item.id} title={item.title} image={item.poster_path} tombol={"Add Favorite"} />)
+              data.map((item) => <Card labeHtml={"my-modal-3"} key={item.id} title={item.title} image={item.poster_path} tombol={"Add Favorite"} onNavigate={() => [setVideosTwo(item)]} />)
             ) : (
               <div>
                 <h1>Loading mase</h1>
@@ -82,6 +86,7 @@ function Detail() {
             )}
           </div>
         </div>
+        {videosTwo ? <ModalDetail image={videosTwo.poster_path} title={videosTwo.title} release={videosTwo.release_date} language={videosTwo.original_language} overview={videosTwo.overview} id={videosTwo.id} /> : <Loading />}
       </div>
     </Layout>
   );

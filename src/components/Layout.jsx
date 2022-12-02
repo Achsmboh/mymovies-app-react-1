@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Layout({ children }) {
@@ -17,7 +17,7 @@ function Layout({ children }) {
   }
 
   return (
-    <div className=" bg-abuTua w-full h-screen overflow-auto">
+    <div className=" dark:bg-blackTwo bg-abuTua w-full h-screen overflow-auto">
       <div>
         <Navbar onChange={(e) => setTitle(e.target.value)} onSubmit={() => handleSubmit()} />
       </div>

@@ -24,9 +24,9 @@ export default {
       method: `GET`,
       url: `${id}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=${page}`,
     }),
-  get_Search: (title) =>
+  get_Search: (title, page) =>
     instanceTwo({
       method: `GET`,
-      url: `search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&query=${title}&page=1&include_adult=false`,
+      url: `search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&query=${title}&page=${page}&include_adult=false`,
     }),
 };
