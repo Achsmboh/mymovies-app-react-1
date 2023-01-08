@@ -1,4 +1,4 @@
-DEPLOYMENT : https://mymovies-app-react-1.vercel.app/
+DEPLOYMENT : https://achsmovie.netlify.app/
 
 # Getting Started with Create React App
 
